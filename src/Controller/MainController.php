@@ -15,4 +15,16 @@ final class MainController extends AbstractController
             'controller_name' => 'MainController',
         ]);
     }
+
+    #[Route('/info', name: 'app_info')]
+    public function info(): Response
+    {
+        return new Response("the info");
+    }
+
+    #[Route('/change/{text}', name: 'app_change')]
+    public function change( string $text): Response
+    {
+        return new Response('(extra data) ' . $text);
+    }
 }
